@@ -1,4 +1,11 @@
-let colors = ['blue', 'green', 'red', 'yellow', 'brown', 'black', 'brown', 'pink', 'purple']
+const tableClasses = ['foto_1','foto_2','foto_3','foto_4','foto_5','foto_6','foto_7','foto_8','foto_9','foto_10','foto_11','foto_12','foto_13','foto_14','foto_15','foto_16','foto_17','foto_18','foto_19','foto_20']
+const colors = ['blue', 'green', 'red', 'yellow', 'black', 'brown', 'pink', 'purple']
+
+const ini = () => {
+    let balloons = getColorBalloon(colors)
+    displayBalloons(balloons)
+    //popBalloon(balloons)
+}
 
 //Make randon numbers 
 const getRandom = (size) => {
@@ -15,43 +22,33 @@ const getColorBalloon = (arr) => {
     return colorBalloon
 }
 
+
 //Function Display the numbers of balloons on the HTML
-const getBalloons = () => {
-    let balloons = getColorBalloon(colors)
+const displayBalloons = (balloons) => {
     let countDown = balloons.length
     for(let i = 0; i < balloons.length; i++){
         if(balloons[i] === null){
             countDown -= 1
         }
     }
-    let h1 = document.createElement("h1")
-    h1.innerText = `Pop all the ${countDown} balloons`
-    document.querySelector(".balloon").appendChild(h1)
-
+    // header with countdown 
+    let h1 = `Pop all the ${countDown} balloons`
+    document.querySelector(".header").innerText = h1
+    // creating img for the ballons
     for(let i = 0; i < balloons.length; i++){
-        let spanTag = document.createElement("span")
-        if(i === 0){
-            continue
-        }else if(i % 5 === 0){
-            spanTag.innerText = `${balloons[i]} \n`
-        }else{
-            spanTag.innerText = `${balloons[i]} `
+        let img = document.createElement("IMG");
+        if(balloons[i] === null){
+            img.setAttribute("src", `../images/green_Balloon.png`)
+            img.style.opacity = '0'
+        }else {
+            img.setAttribute("src", `../images/${balloons[i]}_Balloon.png`)
         }
+        img.setAttribute("width", "100")
+        img.setAttribute("height", "100")
         
-        document.querySelector(".balloon").appendChild(spanTag)
+        document.querySelector(`.${tableClasses[i]}`).appendChild(img)   
     }
-}
-
-const popBalloon = () =>{
     
 }
 
 
-
-// let tableRow = document.querySelector(".ballon")
-//     for(let i = 0; i < balloons.length; i++){
-//         let row = tableRow.insertRow(i)
-//         for(let j = 0; j < 5; j++)
-//             var cell = row.insertCell(j)
-//             cell.innerHTML = balloons[i]
-//     }
