@@ -71,63 +71,7 @@ let balloons = getColorBalloon(colors)
 
 
 // Click events to pop the balloon
-document.querySelector('.foto_1').addEventListener("click", function(){
-    popBalloon(balloons, 0)
-})
-document.querySelector('.foto_2').addEventListener("click", function(){
-    popBalloon(balloons, 1)
-})
-document.querySelector('.foto_3').addEventListener("click", function(){
-    popBalloon(balloons, 2)
-})
-document.querySelector('.foto_4').addEventListener("click", function(){
-    popBalloon(balloons, 3)
-})
-document.querySelector('.foto_5').addEventListener("click", function(){
-    popBalloon(balloons, 4)
-})
-document.querySelector('.foto_6').addEventListener("click", function(){
-    popBalloon(balloons, 5)
-})
-document.querySelector('.foto_7').addEventListener("click", function(){
-    popBalloon(balloons, 6)
-})
-document.querySelector('.foto_8').addEventListener("click", function(){
-    popBalloon(balloons, 7)
-})
-document.querySelector('.foto_9').addEventListener("click", function(){
-    popBalloon(balloons, 8)
-})
-document.querySelector('.foto_10').addEventListener("click", function(){
-    popBalloon(balloons, 9)
-})
-document.querySelector('.foto_11').addEventListener("click", function(){
-    popBalloon(balloons, 10)
-})
-document.querySelector('.foto_12').addEventListener("click", function(){
-    popBalloon(balloons, 11)
-})
-document.querySelector('.foto_13').addEventListener("click", function(){
-    popBalloon(balloons, 12)
-})
-document.querySelector('.foto_14').addEventListener("click", function(){
-    popBalloon(balloons, 13)
-})
-document.querySelector('.foto_15').addEventListener("click", function(){
-    popBalloon(balloons, 14)
-})
-document.querySelector('.foto_16').addEventListener("click", function(){
-    popBalloon(balloons, 15)
-})
-document.querySelector('.foto_17').addEventListener("click", function(){
-    popBalloon(balloons, 16)
-})
-document.querySelector('.foto_18').addEventListener("click", function(){
-    popBalloon(balloons, 17)
-})
-document.querySelector('.foto_19').addEventListener("click", function(){
-    popBalloon(balloons, 18)
-})
-document.querySelector('.foto_20').addEventListener("click", function(){
-    popBalloon(balloons, 19)
-})
+const clickBallon = () => {
+    return tableClasses.forEach((item, index) => document.querySelector("." + item).addEventListener("click", () => popBalloon(balloons, index)))
+}
+clickBallon()
